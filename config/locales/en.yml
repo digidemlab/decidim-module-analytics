@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      analytics:
+        name: Analytics
