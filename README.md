@@ -1,11 +1,12 @@
 # Decidim::Analytics
 
 A module adding an Analytics tab in the admin panel to embed a Matomo analytics dashboard.
+
+![Preview of the module](screenshot.png)
 ## Usage
 
-This module only works with Matomo so far.
+This module doesn't have any settings panel as I don't want to write anything in the database. It will pick the data it needs from Rails secrets:
 
-It doesn't have any settings but will pick the data it needs from Rails secrets:
 ```
 matomo:
     enabled: true # The tab will only be visible if enabled = true
