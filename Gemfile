@@ -4,7 +4,15 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim"
+# Inside the development app, the relative require has to be one level up, as
+# the Gemfile is copied to the development_app folder (almost) as is.
+base_path = ""
+base_path = "../" if File.basename(__dir__) == "development_app"
+require_relative "#{base_path}lib/decidim/analytics/version"
+
+DECIDIM_VERSION = Decidim::Analytics::DECIDIM_VERSION
+
+gem "decidim", DECIDIM_VERSION
 gem "decidim-analytics", path: "."
 
 gem "puma", ">= 4.3"

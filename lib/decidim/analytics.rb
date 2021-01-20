@@ -3,7 +3,6 @@
 require "decidim/analytics/admin"
 require "decidim/analytics/engine"
 require "decidim/analytics/admin_engine"
-require "decidim/analytics/component"
 
 module Decidim
   # This namespace holds the logic of the `Analytics` component. This component

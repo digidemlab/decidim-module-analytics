@@ -1,6 +1,9 @@
 ---
 en:
   decidim:
-    components:
-      analytics:
-        name: Analytics
+    analytics:
+      menu:
+        analytics: Analytics
+    admin:
+      title:
+        analytics: Analytics

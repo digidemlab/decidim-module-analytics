@@ -3,8 +3,7 @@
 module Decidim
   # This holds the decidim-meetings version.
   module Analytics
-    def self.version
-      "0.23.1"
-    end
+    VERSION = "0.23.1"
+    DECIDIM_VERSION = "~> 0.23.1"
   end
 end

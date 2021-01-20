@@ -6,21 +6,26 @@ module Decidim
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::Analytics::Admin
 
-      paths["db/migrate"] = nil
-      paths["lib/tasks"] = nil
-
       routes do
-        # Add admin engine routes here
-        # resources :analytics do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        # root to: "analytics#index"
+        resources :analytics, :only => [:index]
+        root to: "analytics#index"
       end
 
-      def load_seed
-        nil
+      initializer "decidim_analytics.admin_mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Analytics::AdminEngine, at: "/admin/analytics", as: "decidim_admin_analytics"
+        end
+      end
+
+      initializer "decidim_analytics.admin_menu" do
+        Decidim.menu :admin_menu do |menu|
+          menu.item I18n.t("menu.analytics", scope: "decidim.analytics"),
+                    decidim_admin_analytics.analytics_path,
+                    icon_name: "pie-chart",
+                    position: 7.2,
+                    active: :inclusive,
+                    if: allowed_to?(:update, :organization, organization: current_organization) and Rails.application.secrets.dig(:matomo, :enabled)
+        end
       end
     end
   end
