@@ -9,7 +9,7 @@ It doesn't have any settings but will pick the data it needs from Rails secrets:
 ```
 matomo:
     enabled: true # The tab will only be visible if enabled = true
-    server_address: matomo.example.org # The domain name of your Matomo instance
+    server_address: https://matomo.example.org # The URL of your Matomo instance
     site_id: 1 # The Matomo site ID of the Decidim platform
     token_auth: 6a710da82ecb933866507c14bdb99351 # A Matomo authentication token.
 ```
