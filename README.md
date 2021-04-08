@@ -14,7 +14,7 @@ The module doesn't have any settings panel as I don't want to write anything in 
 ```
 matomo:
     enabled: true # Enables tracking and displays the admin tab
-    server_address: https://matomo.example.org # The URL of your Matomo instance
+    server_address: https://matomo.example.org/ # The URL of your Matomo instance
     site_id: 1 # The Matomo site ID of the Decidim platform
     token_auth: 6a710da82ecb933866507c14bdb99351 # A Matomo authentication token (read-only).
 ```
