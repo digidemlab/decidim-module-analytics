@@ -2,26 +2,6 @@ GIT
   remote: https://github.com/decidim/decidim
   revision: 91547b859a37e80bc5335b1d5684647030cb2ece
   specs:
-    decidim (0.23.1)
-      decidim-accountability (= 0.23.1)
-      decidim-admin (= 0.23.1)
-      decidim-api (= 0.23.1)
-      decidim-assemblies (= 0.23.1)
-      decidim-blogs (= 0.23.1)
-      decidim-budgets (= 0.23.1)
-      decidim-comments (= 0.23.1)
-      decidim-core (= 0.23.1)
-      decidim-debates (= 0.23.1)
-      decidim-forms (= 0.23.1)
-      decidim-generators (= 0.23.1)
-      decidim-meetings (= 0.23.1)
-      decidim-pages (= 0.23.1)
-      decidim-participatory_processes (= 0.23.1)
-      decidim-proposals (= 0.23.1)
-      decidim-sortitions (= 0.23.1)
-      decidim-surveys (= 0.23.1)
-      decidim-system (= 0.23.1)
-      decidim-verifications (= 0.23.1)
     decidim-accountability (0.23.1)
       decidim-comments (= 0.23.1)
       decidim-core (= 0.23.1)
@@ -203,7 +183,7 @@ PATH
   remote: .
   specs:
     decidim-analytics (0.23.1)
-      decidim-core (~> 0.23.1)
+      decidim-core (>= 0.20.0)
 
 GEM
   remote: https://rubygems.org/
@@ -332,6 +312,26 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
+    decidim (0.23.1)
+      decidim-accountability (= 0.23.1)
+      decidim-admin (= 0.23.1)
+      decidim-api (= 0.23.1)
+      decidim-assemblies (= 0.23.1)
+      decidim-blogs (= 0.23.1)
+      decidim-budgets (= 0.23.1)
+      decidim-comments (= 0.23.1)
+      decidim-core (= 0.23.1)
+      decidim-debates (= 0.23.1)
+      decidim-forms (= 0.23.1)
+      decidim-generators (= 0.23.1)
+      decidim-meetings (= 0.23.1)
+      decidim-pages (= 0.23.1)
+      decidim-participatory_processes (= 0.23.1)
+      decidim-proposals (= 0.23.1)
+      decidim-sortitions (= 0.23.1)
+      decidim-surveys (= 0.23.1)
+      decidim-system (= 0.23.1)
+      decidim-verifications (= 0.23.1)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -488,7 +488,9 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.1104)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -775,7 +777,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
-  decidim (~> 0.23.1)
+  decidim (>= 0.20.0)
   decidim-analytics!
   decidim-dev!
   faker (~> 1.9)
@@ -791,4 +793,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.2.2
+   2.2.24
