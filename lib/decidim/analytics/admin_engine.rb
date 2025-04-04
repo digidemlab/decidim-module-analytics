@@ -19,13 +19,18 @@ module Decidim
 
       initializer "decidim_analytics.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item I18n.t("menu.analytics", scope: "decidim.analytics"),
+          menu.add_item :analytics,
+                    I18n.t("menu.analytics", scope: "decidim.analytics"),
                     decidim_admin_analytics.analytics_path,
-                    icon_name: "pie-chart",
+                    icon_name: "pie-chart-2-line",
                     position: 7.2,
                     active: :inclusive,
                     if: allowed_to?(:update, :organization, organization: current_organization) and Rails.application.secrets.dig(:matomo, :enabled)
         end
+      end
+
+      initializer "decidim_admin.register_icons" do |_app|
+        Decidim.icons.register(name: "pie-chart-2-line", icon: "pie-chart-2-line", category: "system", description: "", engine: :core)
       end
     end
   end

@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors = ["Pierre Mesure"]
   s.email = ["pierre@mesu.re"]
   s.license = "AGPL-3.0"
-  s.homepage = "https://github.com/decidim/decidim-module-analytics"
-  s.required_ruby_version = ">= 2.6"
+  s.homepage = "https://github.com/digidemlab/decidim-module-analytics"
+  s.required_ruby_version = ">= 3.2"
 
   s.name = "decidim-analytics"
   s.summary = "A decidim analytics module"

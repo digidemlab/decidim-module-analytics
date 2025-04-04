@@ -1,11 +1,12 @@
+<% add_decidim_page_title(t("decidim.admin.title.analytics")) %>
 <div class="card" id="analytics">
-  <div class="card-divider">
-    <h2 class="card-title">
-        <%= t "decidim.admin.title.analytics" %>
-    </h2>
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t("decidim.admin.title.analytics") %>
+    </h1>
   </div>
   <div class="card-section">
-    <iframe src="<%= @server_address %>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<%= @site_id %>&period=week&date=yesterday&token_auth=<%= @token_auth %>"
+    <iframe src="<%= @server_address %>index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<%= @site_id %>&period=week&date=yesterday&token_auth=<%= @token_auth %>"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
@@ -14,5 +15,3 @@
     </iframe>
   </div>
 </div>
-
-
