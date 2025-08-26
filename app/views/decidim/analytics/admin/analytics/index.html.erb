@@ -1,18 +1,75 @@
-<div class="card" id="analytics">
-  <div class="card-divider">
-    <h2 class="card-title">
-        <%= t "decidim.admin.title.analytics" %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <iframe src="<%= @server_address %>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<%= @site_id %>&period=week&date=yesterday&token_auth=<%= @token_auth %>"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        width="100%"
-        height="4200px">
-    </iframe>
+<% add_decidim_page_title(t("decidim.analytics.admin.title.analytics")) %>
+
+<div class="row">
+  <div class="columns">
+    <div class="card" id="analytics">
+      <div class="card-divider">
+        <h2 class="card-title">
+          <%= icon "bar-chart-2-line", class: "icon--before" %>
+          <%= t("decidim.analytics.admin.title.analytics") %>
+        </h2>
+      </div>
+
+      <div class="card-section">
+        <% if @server_address.present? && @site_id.present? && @token_auth.present? %>
+          <div class="analytics-iframe-container">
+            <iframe
+              src="<%= matomo_dashboard_url %>"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              width="100%"
+              height="4200px"
+              title="<%= t("decidim.analytics.admin.iframe_title") %>">
+            </iframe>
+          </div>
+        <% else %>
+          <div class="callout warning">
+            <h5><%= t("decidim.analytics.admin.configuration_missing") %></h5>
+            <p><%= t("decidim.analytics.admin.configuration_help") %></p>
+
+            <h6><%= t("decidim.analytics.admin.configuration_instructions") %></h6>
+            <pre><code># config/credentials.yml.enc (recomendado)
+matomo:
+  server_address: "https://your-matomo-domain.com"
+  site_id: "1"
+  token_auth: "your-token-here"
+
+# O en config/secrets.yml
+matomo:
+  server_address: "https://your-matomo-domain.com"
+  site_id: "1"
+  token_auth: "your-token-here"</code></pre>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
+<% content_for :js_content do %>
+  <script>
+      // Auto-refresh iframe every 30 minutes
+      setInterval(function() {
+          const iframe = document.querySelector('#analytics iframe');
+          if (iframe) {
+              iframe.src = iframe.src;
+          }
+      }, 1800000); // 30 minutes
+  </script>
+<% end %>
 
+<style>
+    .analytics-iframe-container {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+    }
+
+    .analytics-iframe-container iframe {
+        display: block;
+        width: 100%;
+        border: none;
+    }
+</style>

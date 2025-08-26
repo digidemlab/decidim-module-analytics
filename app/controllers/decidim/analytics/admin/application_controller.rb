@@ -3,12 +3,11 @@
 module Decidim
   module Analytics
     module Admin
-      # This controller is the abstract class from which all other controllers of
-      # this engine inherit.
-      #
-      # Note that it inherits from `Decidim::Admin::Components::BaseController`, which
-      # override its layout and provide all kinds of useful methods.
+      # This controller is the abstract class from which all other controllers
+      # in this engine inherit.
       class ApplicationController < Decidim::Admin::ApplicationController
+        helper Decidim::Admin::IconLinkHelper
+        helper Decidim::Analytics::Admin::ApplicationHelper
       end
     end
   end

@@ -3,7 +3,12 @@ es:
   decidim:
     analytics:
       menu:
-        analytics: Analytics
-    admin:
-      title:
-        analytics: Analytics
+        analytics: Analíticas
+      admin:
+        title:
+          analytics: Analíticas
+        configuration_missing: "Configuración de Matomo faltante"
+        configuration_help: "Por favor configura los ajustes de Matomo para ver las analíticas."
+        configuration_instructions: "Agrega la siguiente configuración:"
+        missing_config: "La configuración de analíticas está incompleta. Verifica tu configuración de Matomo."
+        iframe_title: "Panel de Analíticas de Matomo"
