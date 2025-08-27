@@ -17,8 +17,7 @@ module Decidim
         private
 
         def matomo_config
-          @matomo_config ||= Rails.application.credentials.dig(:matomo) ||
-                             Rails.application.secrets.dig(:matomo) || {}
+          @matomo_config ||= Rails.application.secrets.dig(:matomo) || {}
         end
 
         def missing_config?

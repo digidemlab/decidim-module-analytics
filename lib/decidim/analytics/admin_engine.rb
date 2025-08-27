@@ -10,7 +10,6 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        # Add admin routes here
         root to: "analytics#index"
         resources :analytics, only: [:index]
       end

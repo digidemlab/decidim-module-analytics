@@ -4,21 +4,21 @@ module Decidim
   module Analytics
     module Admin
       module ApplicationHelper
-        def matomo_dashboard_url
-          return '#' if @server_address.blank? || @site_id.blank? || @token_auth.blank?
+        def matomo_dashboard_url(server_address, site_id, token_auth)
+          return '#' if server_address.blank? || site_id.blank? || token_auth.blank?
 
           params = {
             module: 'Widgetize',
             action: 'iframe',
             moduleToWidgetize: 'Dashboard',
             actionToWidgetize: 'index',
-            idSite: @site_id,
+            idSite: site_id,
             period: 'week',
             date: 'yesterday',
-            token_auth: @token_auth
+            token_auth: token_auth
           }
 
-          "#{@server_address}/index.php?#{params.to_query}"
+          "#{server_address}/index.php?#{params.to_query}"
         end
       end
     end

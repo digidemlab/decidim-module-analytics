@@ -1,13 +1,18 @@
-<% if Rails.application.secrets.dig(:matomo, :enabled) %>
+<%
+  matomo_config = Rails.application.secrets.dig(:matomo) || {}
+  server_address = matomo_config[:server_address]
+  site_id = matomo_config[:site_id]
+%>
+<% if server_address.present? && site_id.present? %>
   <script type="text/javascript">
     var _paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="<%= Rails.application.secrets.dig(:matomo, :server_address) %>";
+      var u="<%= server_address %>";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '<%= Rails.application.secrets.dig(:matomo, :site_id) %>']);
+      _paq.push(['setSiteId', '<%= site_id %>']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
