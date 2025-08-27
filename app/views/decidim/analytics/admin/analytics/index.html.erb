@@ -14,13 +14,9 @@
         <% if @server_address.present? && @site_id.present? && @token_auth.present? %>
           <div class="analytics-iframe-container">
             <iframe
-              src="<%= matomo_dashboard_url %>"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              width="100%"
-              height="4200px"
-              title="<%= t("decidim.analytics.admin.iframe_title") %>">
+              src="<%= matomo_dashboard_url(@server_address, @site_id, @token_auth) %>"
+              title="<%= t("decidim.analytics.admin.iframe_title") %>"
+              class="analytics-iframe">
             </iframe>
           </div>
         <% else %>
@@ -29,13 +25,7 @@
             <p><%= t("decidim.analytics.admin.configuration_help") %></p>
 
             <h6><%= t("decidim.analytics.admin.configuration_instructions") %></h6>
-            <pre><code># config/credentials.yml.enc (recomendado)
-matomo:
-  server_address: "https://your-matomo-domain.com"
-  site_id: "1"
-  token_auth: "your-token-here"
-
-# O en config/secrets.yml
+            <pre><code># config/secrets.yml
 matomo:
   server_address: "https://your-matomo-domain.com"
   site_id: "1"
@@ -47,29 +37,10 @@ matomo:
   </div>
 </div>
 
-<% content_for :js_content do %>
-  <script>
-      // Auto-refresh iframe every 30 minutes
-      setInterval(function() {
-          const iframe = document.querySelector('#analytics iframe');
-          if (iframe) {
-              iframe.src = iframe.src;
-          }
-      }, 1800000); // 30 minutes
-  </script>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "decidim/analytics/admin/analytics" %>
 <% end %>
 
-<style>
-    .analytics-iframe-container {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid #e6e6e6;
-        border-radius: 4px;
-    }
-
-    .analytics-iframe-container iframe {
-        display: block;
-        width: 100%;
-        border: none;
-    }
-</style>
+<% content_for :js_content do %>
+  <%= javascript_include_tag "decidim/analytics/admin/analytics" %>
+<% end %>
