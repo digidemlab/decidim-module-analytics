@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.authors = ['Pierre Mesure']
   s.email = ['pierre@mesu.re']
   s.license = 'AGPL-3.0'
-  s.homepage = 'https://github.com/decidim/decidim-module-analytics'
+  s.homepage = 'https://github.com/platoniq/decidim-module-analytics'
   s.metadata['rubygems_mfa_required'] = 'true'
-  s.required_ruby_version = '>= 3.1.0'
+  s.required_ruby_version = '>= 3.3.4'
 
   s.name = 'decidim-analytics'
   s.summary = 'A decidim analytics module'
@@ -25,6 +25,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'decidim-dev', Decidim::Analytics::DECIDIM_VERSION
 
   s.metadata['homepage_uri'] = s.homepage
-  s.metadata['source_code_uri'] = 'https://github.com/decidim/decidim-module-analytics'
-  s.metadata['bug_tracker_uri'] = 'https://github.com/decidim/decidim-module-analytics/issues'
+  s.metadata['source_code_uri'] = 'https://github.com/platoniq/decidim-module-analytics'
+  s.metadata['bug_tracker_uri'] = 'https://github.com/platoniq/decidim-module-analytics/issues'
 end
