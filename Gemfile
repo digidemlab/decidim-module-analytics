@@ -15,21 +15,19 @@ DECIDIM_VERSION = Decidim::Analytics::DECIDIM_VERSION
 gem "decidim", DECIDIM_VERSION
 gem "decidim-analytics", path: "."
 
-gem "puma", ">= 4.3"
-gem "bootsnap", "~> 1.4"
-gem "uglifier", "~> 4.1"
+gem "bootsnap", "~> 1.17"
+gem "puma", ">= 6.4"
 
 group :development, :test do
-  gem "byebug", "~> 11.0", platform: :mri
-
-  gem "decidim-dev", git: "https://github.com/decidim/decidim"
+  gem "byebug", platform: :mri
+  gem "decidim-dev", DECIDIM_VERSION
+  gem "rspec-rails"
 end
 
 group :development do
-  gem "faker", "~> 1.9"
-  gem "letter_opener_web", "~> 1.3"
-  gem "listen", "~> 3.1"
-  gem "spring", "~> 2.0"
-  gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 3.5"
+  gem "faker"
+  gem "letter_opener_web"
+  gem "listen"
+  gem "spring"
+  gem "web-console"
 end

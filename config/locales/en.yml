@@ -4,6 +4,11 @@ en:
     analytics:
       menu:
         analytics: Analytics
-    admin:
-      title:
-        analytics: Analytics
+      admin:
+        title:
+          analytics: Analytics
+        configuration_missing: "Matomo configuration missing"
+        configuration_help: "Please configure Matomo settings to view analytics."
+        configuration_instructions: "Add the following configuration:"
+        missing_config: "Analytics configuration is incomplete. Please check your Matomo settings."
+        iframe_title: "Matomo Analytics Dashboard"
