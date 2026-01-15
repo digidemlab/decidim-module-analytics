@@ -3,7 +3,12 @@ sv:
   decidim:
     analytics:
       menu:
-        analytics: Analytics
-    admin:
-      title:
-        analytics: Analytics
+        analytics: Webbanalys
+      admin:
+        title:
+          analytics: Webbanalys
+        configuration_missing: "Matomo-inställningar saknas"
+        configuration_help: "Konfigurera Matomo för att se din webbanalys."
+        configuration_instructions: "Lägg till följande inställningar:"
+        missing_config: "Analys-inställningarna är inte färdiga. Kontrollera dina Matomo-inställningar."
+        iframe_title: "Matomo Dashboard"
