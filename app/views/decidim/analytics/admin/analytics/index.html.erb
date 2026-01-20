@@ -1,5 +1,22 @@
 <% add_decidim_page_title(t("decidim.analytics.admin.title.analytics")) %>
+<style>
+.analytics-iframe-container {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  min-height: 600px;
+  height: 80vh;
+}
 
+.analytics-iframe-container iframe,
+.analytics-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
 <div class="row">
   <div class="columns">
     <div class="card" id="analytics">
@@ -36,7 +53,11 @@ matomo:
     </div>
   </div>
 </div>
-
-<% content_for :head do %>
-  <%= stylesheet_pack_tag "decidim_analytics" %>
-<% end %>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const iframe = document.querySelector('#analytics iframe');
+  if (iframe) {
+    setInterval(function() { iframe.src = iframe.src; }, 1800000);
+  }
+});
+</script>
