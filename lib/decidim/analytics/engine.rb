@@ -5,9 +5,12 @@ require "decidim/core"
 
 module Decidim
   module Analytics
-    # This is the engine that runs on the public interface of analytics.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Analytics
+
+      initializer "decidim_analytics.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end
