@@ -3,4 +3,6 @@
 base_path = File.expand_path("..", __dir__)
 
 Decidim::Webpacker.register_path("#{base_path}/app/packs")
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/analytics/analytics", group: :admin)
+Decidim::Webpacker.register_entrypoints(
+  decidim_analytics: "#{base_path}/app/packs/entrypoints/decidim_analytics.scss"
+)

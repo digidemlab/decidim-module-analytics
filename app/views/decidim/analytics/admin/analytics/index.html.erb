@@ -38,9 +38,5 @@ matomo:
 </div>
 
 <% content_for :head do %>
-  <%= stylesheet_link_tag "decidim/analytics/admin/analytics" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_include_tag "decidim/analytics/admin/analytics" %>
+  <%= stylesheet_pack_tag "decidim_analytics" %>
 <% end %>
