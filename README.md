@@ -14,7 +14,8 @@ The module doesn't have any settings panel as I don't want to write anything in 
 ```
 matomo:
     enabled: true # Enables tracking and displays the admin tab
-    server_address: https://matomo.example.org/ # The URL of your Matomo instance
+    server_address: https://matomo.example.org/ # The URL used for sending tracking data
+    viewer_address: https://matomo-viewer.example.org/ # Optional: separate URL for viewing dashboards, defaults to server_address
     site_id: 1 # The Matomo site ID of the Decidim platform
     token_auth: 6a710da82ecb933866507c14bdb99351 # A Matomo authentication token (read-only).
 ```
@@ -48,6 +49,7 @@ You can use this module without the provided tracking snippet and write your own
 matomo:
     enabled: <%= !ENV["MATOMO_SITE_ID"].blank? %>
     server_address: <%= ENV["MATOMO_SERVER_ADDRESS"] %>
+    viewer_address: <%= ENV["MATOMO_VIEWER_ADDRESS"] %>
     site_id: <%= ENV["MATOMO_SITE_ID"] %>
     token_auth: <%= ENV["MATOMO_TOKEN_AUTH"] %>
 ```

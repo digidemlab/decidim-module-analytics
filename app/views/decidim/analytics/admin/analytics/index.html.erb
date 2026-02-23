@@ -28,10 +28,10 @@
       </div>
 
       <div class="card-section">
-        <% if @server_address.present? && @site_id.present? && @token_auth.present? %>
+        <% if @dashboard_address.present? && @site_id.present? && @token_auth.present? %>
           <div class="analytics-iframe-container">
             <iframe
-              src="<%= matomo_dashboard_url(@server_address, @site_id, @token_auth) %>"
+              src="<%= matomo_dashboard_url(@dashboard_address, @site_id, @token_auth) %>"
               title="<%= t("decidim.analytics.admin.iframe_title") %>"
               class="analytics-iframe">
             </iframe>
@@ -45,6 +45,7 @@
             <pre><code># config/secrets.yml
 matomo:
   server_address: "https://your-matomo-domain.com"
+  viewer_address: "https://your-matomo-viewer.com"  # optional, defaults to server_address
   site_id: "1"
   token_auth: "your-token-here"</code></pre>
           </div>

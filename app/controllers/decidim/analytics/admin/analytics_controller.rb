@@ -6,8 +6,10 @@ module Decidim
       class AnalyticsController < Analytics::Admin::ApplicationController
         def index
           @server_address = matomo_config[:server_address]
+          @viewer_address = matomo_config[:viewer_address]
           @site_id = matomo_config[:site_id]
           @token_auth = matomo_config[:token_auth]
+          @dashboard_address = @viewer_address.presence || @server_address
 
           if missing_config?
             flash.now[:alert] = t("decidim.analytics.admin.missing_config")
@@ -21,7 +23,7 @@ module Decidim
         end
 
         def missing_config?
-          @server_address.blank? || @site_id.blank? || @token_auth.blank?
+          @dashboard_address.blank? || @site_id.blank? || @token_auth.blank?
         end
       end
     end
