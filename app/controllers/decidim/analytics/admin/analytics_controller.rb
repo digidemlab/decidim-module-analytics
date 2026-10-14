@@ -19,7 +19,7 @@ module Decidim
         private
 
         def matomo_config
-          @matomo_config ||= Rails.application.secrets.dig(:matomo) || {}
+          @matomo_config ||= Decidim::Analytics.matomo
         end
 
         def missing_config?
