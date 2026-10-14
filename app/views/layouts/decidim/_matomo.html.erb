@@ -1,5 +1,5 @@
 <%
-  matomo_config = Rails.application.secrets.dig(:matomo) || {}
+  matomo_config = Decidim::Analytics.matomo
   server_address = matomo_config[:server_address]
   site_id = matomo_config[:site_id]
 %>
